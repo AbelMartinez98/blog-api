@@ -1,0 +1,599 @@
+{
+	"info": {
+		"_postman_id": "fd995036-0d71-4aaa-9c77-74c7525a55e1",
+		"name": "Blog API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23671602",
+		"_collection_link": "https://restless-equinox-468091.postman.co/workspace/Blog-API---Bisa~86804445-fb3f-4e49-a926-cfb3cd15468b/collection/23671602-fd995036-0d71-4aaa-9c77-74c7525a55e1?action=share&source=collection_link&creator=23671602"
+	},
+	"item": [
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Abel\",\n  \"paternalSurname\": \"Martinez\",\n  \"maternalSurname\": \"Aparicio\",\n  \"birthDate\": \"1998-08-14\",\n  \"residenceCountry\": \"Bolivia\",\n  \"email\": \"martines.140898@gmail.com\"\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/author",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"firstName\": \"Abel Angel\",\n  \"paternalSurname\": \"Martinez\",\n  \"maternalSurname\": \"Aparicio\",\n  \"birthDate\": \"1998-08-14\",\n  \"residenceCountry\": \"Bolivia\",\n  \"email\": \"martins.140898@gmail.com\",\n  \"active\": true\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/author",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/author",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/author/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"author",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/author/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"author",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Spring Boot\",\n  \"topic\": \"Tecnologia\",\n  \"content\": \"Esta es una guia detallada para el uso rapido de Spring Boot\",\n  \"frequency\": \"WEEKLY\",  // Valores posibles: DAILY, WEEKLY, MONTHLY\n  \"allowComments\": true,\n  \"author\": {\n    \"id\": 1 \n  }\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/blog",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"title\": \"Spring Boot\",\n  \"topic\": \"Tecnologia\",\n  \"content\": \"Esta es una guia detallada para el uso rapido de Spring Boot\",\n  \"frequency\": \"MONTHLY\",  // Valores posibles: DAILY, WEEKLY, MONTHLY\n  \"allowComments\": false,\n  \"author\": {\n    \"id\": 1 \n  },\n  \"active\": true\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/blog",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/blog",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/blog/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blog",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/blog/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blog",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"commenterName\": \"Orlando\",\n  \"commenterEmail\": \"orlando@gmail.com\",\n  \"commenterCountry\": \"Colombia\",\n  \"content\": \"Gran articulo, muy interesante!\",\n  \"rating\": 9  // Valor entre 0 y 10\n}\n\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/comment/blog/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllByBlog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/comment/blog/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Example Flow",
+			"item": [
+				{
+					"name": "Create Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Abel\",\n  \"paternalSurname\": \"Martinez\",\n  \"maternalSurname\": \"Aparicio\",\n  \"birthDate\": \"1998-08-14\",\n  \"residenceCountry\": \"Bolivia\",\n  \"email\": \"martines.140898@gmail.com\"\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/author",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Spring Boot\",\n  \"topic\": \"Tecnologia\",\n  \"content\": \"Esta es una guia detallada para el uso rapido de Spring Boot\",\n  \"frequency\": \"WEEKLY\",  // Valores posibles: DAILY, WEEKLY, MONTHLY\n  \"allowComments\": true,\n  \"author\": {\n    \"id\": 1 \n  }\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/blog",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"commenterName\": \"Orlando\",\n  \"commenterEmail\": \"orlando@gmail.com\",\n  \"commenterCountry\": \"Colombia\",\n  \"content\": \"Gran articulo, muy interesante!\",\n  \"rating\": 9  // Valor entre 0 y 10\n}\n\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/comment/blog/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"title\": \"Spring Boot\",\n  \"topic\": \"Tecnologia\",\n  \"content\": \"Esta es una guia detallada para el uso rapido de Spring Boot\",\n  \"frequency\": \"MONTHLY\",  // Valores posibles: DAILY, WEEKLY, MONTHLY\n  \"allowComments\": false,\n  \"active\": true\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/blog",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consult Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/blog/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

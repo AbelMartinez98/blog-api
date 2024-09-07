@@ -1,0 +1,35 @@
+dependencies {
+    developmentOnly "org.springframework.boot:spring-boot-devtools"
+}
+
+def profiles = "dev"
+if (project.hasProperty("no-liquibase")) {
+    profiles += ",no-liquibase"
+}
+if (project.hasProperty("api-docs")) {
+    profiles += ",api-docs"
+}
+
+springBoot {
+    buildInfo {
+        excludes = ['time']
+    }
+}
+
+bootRun {
+    args = []
+}
+
+processResources {
+    inputs.property('version', version)
+    filesMatching("**/application.yml") {
+        filter {
+            it.replace("#project.version#", version)
+        }
+        filter {
+            it.replace("@spring.profiles.active@", profiles)
+        }
+    }
+}
+
+

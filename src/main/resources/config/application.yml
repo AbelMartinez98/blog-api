@@ -1,0 +1,71 @@
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  pattern:
+    file: "%date %-5level [%thread] %logger{5}#%line: %marker%msg%n%xEx"
+    console: "%clr(%date){faint} %clr(%5level) %clr([%15.15thread]){faint} %clr(%-40.40logger{39}){cyan} %clr(#%line){cyan} %clr(:){faint} %clr(%marker){cyan}%msg%n%xEx"
+
+spring:
+  application:
+    name: blog-api
+  profiles:
+    active: '@spring.profiles.active@'
+    group:
+      dev:
+        - dev
+  jmx:
+    enabled: false
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.enable_lazy_load_no_trans: true
+      hibernate.jdbc.time_zone: GMT-4
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.jdbc.batch_size: 25
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.query.fail_on_pagination_over_collection_fetch: true
+      hibernate.query.in_clause_parameter_padding: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+
+task:
+  execution:
+    thread-name-prefix: ${spring.application.name}-task-
+    pool:
+      core-size: 2
+      max-size: 50
+      queue-capacity: 10000
+  scheduling:
+    thread-name-prefix: ${spring.application.name}-scheduling-
+    pool:
+      size: 2
+output:
+  ansi:
+    enabled: always
+
+coreprop:
+  api-docs:
+    default-include-pattern: /api/**
+    title: ${spring.application.name} API
+    description: ${spring.application.name} API documentation
+    version: ${project.version}
+    terms-of-service-url:
+    contact-name:
+    contact-url:
+    contact-email:
+    license: Unlicensed
+    license-url:
+  security:
+    content-security-policy: "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
